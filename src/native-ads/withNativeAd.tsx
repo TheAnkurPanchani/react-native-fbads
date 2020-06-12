@@ -1,7 +1,8 @@
 import { EventSubscription } from 'fbemitter';
 import React, { ReactNode } from 'react';
 import { findNodeHandle, requireNativeComponent } from 'react-native';
-import { AdIconView, MediaView } from '../index';
+import { NativeAdIconView as AdIconView } from './AdIconViewManager'
+import { NativeMediaView as MediaView } from './MediaViewManager'
 import {
   AdChoicesViewContext,
   AdIconViewContext,
@@ -22,7 +23,7 @@ interface NativeAdViewProps {
 }
 
 // tslint:disable-next-line:variable-name
-const NativeAdView = requireNativeComponent<NativeAdViewProps>('CTKNativeAd');
+const NativeAdView = requireNativeComponent('CTKNativeAd');
 
 interface AdWrapperState {
   ad?: NativeAd;

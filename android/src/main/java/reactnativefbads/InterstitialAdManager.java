@@ -1,4 +1,4 @@
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;

@@ -1,4 +1,4 @@
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import android.util.Log;
 import android.view.View;
@@ -16,7 +16,6 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.UiThreadUtil;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.RCTNativeAppEventEmitter;
-import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.uimanager.IllegalViewOperationException;
 import com.facebook.react.uimanager.NativeViewHierarchyManager;
 import com.facebook.react.uimanager.UIBlock;
@@ -25,10 +24,9 @@ import com.facebook.react.uimanager.UIManagerModule;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Locale;
+import java.util.Map;
 
-@ReactModule(name = "CTKNativeAdManager")
 public class NativeAdManager extends ReactContextBaseJavaModule implements NativeAdsManager.Listener {
   /**
    * @{Map} with all registered fb ads managers
@@ -151,7 +149,7 @@ public class NativeAdManager extends ReactContextBaseJavaModule implements Nativ
       @Override
       public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
         try {
-          NativeAdView nativeAdView = null;
+          com.reactnativefbads.NativeAdView nativeAdView = null;
           MediaView mediaView = null;
           AdIconView adIconView = null;
 

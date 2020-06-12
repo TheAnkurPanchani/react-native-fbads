@@ -1,12 +1,9 @@
 /**
  * NativeAdChoiceViewManager.java
- * suraj.tiwari.reactnativefbads
- *
- * Created by Suraj Tiwari on 07/08/18.
- * Copyright © 2018 Suraj Tiwari All rights reserved.
+ * reactnativefbads
  */
 
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import com.facebook.ads.NativeAdsManager;
 import com.facebook.react.bridge.ReactApplicationContext;

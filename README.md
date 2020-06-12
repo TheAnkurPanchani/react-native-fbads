@@ -45,31 +45,7 @@ If you didn't use Cocoapods to integrate the Facebook SDK, you'll need to manual
 
 #### For Android:
 
-1. The library will automatically add audience-network-sdk to your dependencies. There is no need to add the audience network artifact to your build.gradle.
-
-2. In `MainApplication.java`, initialize the SDK inside `onCreate`:
-
-```java
-
-import com.facebook.ads.AudienceNetworkAds; // <-- add this
-import suraj.tiwari.reactnativefbads.FBAdsPackage; // <-- add this
-
-public class MainApplication extends Application implements ReactApplication {
-...
-  @Override 
-  public void onCreate() {
-    super.onCreate();
-    AudienceNetworkAds.initialize(this); // <-- add this
-  }
-  @Override
-  protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-          new FBAdsPackage()   // <-- add this
-    );
-  }
-...
-}
-```
+- The library will automatically add audience-network-sdk to your dependencies. There is no need to add the audience network artifact to your build.gradle.
 
 ### 3. Install The Javascript Package
 

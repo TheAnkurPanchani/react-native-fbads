@@ -22,7 +22,7 @@ interface BannerViewProps {
 }
 
 // tslint:disable-next-line:variable-name
-const CTKBannerView = requireNativeComponent<NativeBannerViewProps>(
+const CTKBannerView = requireNativeComponent(
   'CTKBannerView'
 );
 

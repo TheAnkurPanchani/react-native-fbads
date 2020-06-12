@@ -1,4 +1,4 @@
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;

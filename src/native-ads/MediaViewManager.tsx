@@ -9,9 +9,7 @@ import {
 export type MediaViewProps = ViewProps;
 
 // tslint:disable-next-line:variable-name
-export const NativeMediaView = requireNativeComponent<MediaViewProps>(
-  'MediaView'
-);
+export const NativeMediaView = requireNativeComponent('MediaView');
 
 class MediaViewChild extends React.Component<
   MediaViewProps & MediaViewContextValueType

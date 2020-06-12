@@ -1,4 +1,4 @@
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import android.content.Context;
 import android.content.SharedPreferences;

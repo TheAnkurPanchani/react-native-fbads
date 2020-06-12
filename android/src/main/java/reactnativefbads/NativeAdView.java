@@ -1,4 +1,4 @@
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import android.graphics.drawable.Icon;
 import android.view.MotionEvent;

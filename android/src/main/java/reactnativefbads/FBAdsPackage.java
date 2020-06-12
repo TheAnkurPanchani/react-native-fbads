@@ -1,11 +1,8 @@
 /**
  * FBAdsPackage.java
- * suraj.tiwari.reactnativefbads
- *
- * Created by Suraj Tiwari on 07/08/18.
- * Copyright © 2018 Suraj Tiwari All rights reserved.
+ * reactnativefbads
  */
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -26,8 +23,7 @@ public class FBAdsPackage implements ReactPackage {
         return Arrays.<NativeModule>asList(
            new NativeAdManager(reactContext),
            new AdSettingsManager(reactContext),
-           new InterstitialAdManager(reactContext),
-           new NativeAdChoicesViewManager(reactContext)
+           new InterstitialAdManager(reactContext)
         );
     }
 

@@ -1,4 +1,4 @@
-package suraj.tiwari.reactnativefbads;
+package com.reactnativefbads;
 
 import com.facebook.ads.MediaView;
 import com.facebook.react.uimanager.SimpleViewManager;
