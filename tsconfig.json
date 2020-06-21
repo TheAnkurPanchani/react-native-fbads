@@ -8,7 +8,6 @@
     "sourceMap": false,
     "declaration": true,
     "allowSyntheticDefaultImports": true,
-    "declarationDir": "lib/typescript/src",
     "types": ["react-native"],
     "lib": ["es7"]
   },

@@ -1,6 +1,6 @@
 /**
  * FBAdsPackage.java
- * reactnativefbads
+ * com.reactnativefbads
  */
 package com.reactnativefbads;
 
@@ -22,8 +22,10 @@ public class FBAdsPackage implements ReactPackage {
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.<NativeModule>asList(
            new NativeAdManager(reactContext),
+           new NativeBannerAdManager(reactContext),
            new AdSettingsManager(reactContext),
-           new InterstitialAdManager(reactContext)
+           new InterstitialAdManager(reactContext),
+           new RewardedVideoAdManager(reactContext)
         );
     }
 
@@ -36,6 +38,7 @@ public class FBAdsPackage implements ReactPackage {
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
            new NativeAdViewManager(),
+           new NativeBannerAdViewManager(),
            new BannerViewManager(),
            new AdIconViewManager(),
            new MediaViewManager(),

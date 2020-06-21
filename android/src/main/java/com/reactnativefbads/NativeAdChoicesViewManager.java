@@ -1,10 +1,11 @@
 /**
  * NativeAdChoiceViewManager.java
- * reactnativefbads
+ * com.reactnativefbads
  */
 
 package com.reactnativefbads;
 
+import com.facebook.ads.NativeAdBase;
 import com.facebook.ads.NativeAdsManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -26,12 +27,22 @@ public class NativeAdChoicesViewManager extends SimpleViewManager<NativeAdChoice
     mReactContext = context;
   }
 
+  @ReactProp(name = "bannerPlacementId")
+  public void setNativeBannerAd(NativeAdChoicesView view, String bannerPlacementId) {
+    if(bannerPlacementId != null) {
+      final NativeBannerAdManager adManager = mReactContext.getNativeModule(NativeBannerAdManager.class);
+      view.setNativeAd(adManager.getNativeBannerAd(bannerPlacementId));
+    }
+  }
+
   @ReactProp(name = "placementId")
   public void adsManager(NativeAdChoicesView view, String adsManagerId) {
-    NativeAdManager adManager = mReactContext.getNativeModule(NativeAdManager.class);
-    NativeAdsManager adsManager = adManager.getFBAdsManager(adsManagerId);
+    if(adsManagerId != null) {
+      NativeAdManager adManager = mReactContext.getNativeModule(NativeAdManager.class);
+      NativeAdsManager adsManager = adManager.getFBAdsManager(adsManagerId);
 
-    view.setNativeAd(adsManager.nextNativeAd());
+      view.setNativeAd(adsManager.nextNativeAd());
+    }
   }
 
   @Override

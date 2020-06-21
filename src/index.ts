@@ -1,10 +1,13 @@
 export { default as withNativeAd } from './native-ads/withNativeAd';
+export { default as withNativeBannerAd } from './native-ads/withNativeBannerAd';
 export { default as AdSettings } from './AdSettings';
 export { default as NativeAdsManager } from './native-ads/NativeAdsManager';
 export { default as InterstitialAdManager } from './InterstitialAdManager';
+export { default as RewardedAdManager } from './RewardedAdManager';
 export { default as BannerView } from './BannerViewManager';
 export { default as MediaView } from './native-ads/MediaViewManager';
 export { default as AdIconView } from './native-ads/AdIconViewManager';
 export { default as TriggerableView } from './native-ads/TriggerableView';
 export { default as AdChoicesView } from './native-ads/AdChoicesManager';
 export * from './native-ads/nativeAd';
+export * from './native-ads/NativeBannerAd';
