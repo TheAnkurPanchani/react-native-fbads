@@ -23,7 +23,7 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
     }
 
     @ReactMethod
-    public void loadAd(String placementId, Promise p) {
+    public void loadAd(String placementId) {
         if(mRewardedAd != null){
             return;
         }
@@ -35,6 +35,10 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
 
     @ReactMethod
     public void showAd(Promise p) {
+        if (mPromise != null) {
+            p.reject("E_FAILED_TO_SHOW", "Only one `showAd` can be called at once");
+            return;
+        }
         mPromise = p;
         mShowCalled = true;
         if(mLoaded) {
@@ -53,21 +57,24 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
 
     @Override
     public void onError(Ad ad, AdError adError) {
-        mPromise.reject("E_FAILED_TO_LOAD", adError.getErrorMessage());
+        if(mPromise != null) {
+            mPromise.reject("E_FAILED_TO_LOAD", adError.getErrorMessage());
+        }
         cleanUp();
     }
 
     @Override
     public void onAdLoaded(Ad ad) {
         if (ad == mRewardedAd) {
+            mLoaded = true;
             if(mShowCalled) {
                 if(mRewardedAd.isAdInvalidated()){
                     mPromise.reject("E_INVALIDATED","Ad Invalidated");
+                    cleanUp();
                 } else {
                     mRewardedAd.show();
                 }
             }
-            mLoaded = true;
         }
     }
 

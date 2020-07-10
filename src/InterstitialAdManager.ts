@@ -4,9 +4,16 @@ const { CTKInterstitialAdManager } = NativeModules;
 
 export default {
   /**
+   * Loads interstitial ad for a given placementId
+   */
+  loadAd(placementId: string): void {
+    CTKInterstitialAdManager.loadAd(placementId);
+  },
+
+  /**
    * Shows interstitial ad for a given placementId
    */
-  showAd(placementId: string): Promise<boolean> {
-    return CTKInterstitialAdManager.showAd(placementId);
-  }
+  showAd(): Promise<boolean> {
+    return CTKInterstitialAdManager.showAd();
+  },
 };
