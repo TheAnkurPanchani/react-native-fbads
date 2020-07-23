@@ -24,9 +24,7 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
 
     @ReactMethod
     public void loadAd(String placementId) {
-        if(mRewardedAd != null){
-            return;
-        }
+        if(mRewardedAd != null) { return; }
         ReactApplicationContext reactContext = this.getReactApplicationContext();
         mRewardedAd = new RewardedVideoAd(reactContext, placementId);
         mRewardedAd.setAdListener(this);
@@ -43,7 +41,8 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
         mShowCalled = true;
         if(mLoaded) {
             if(mRewardedAd.isAdInvalidated()){
-                mPromise.reject("E_INVALIDATED","Ad Invalidated");
+                if (mPromise != null) { mPromise.reject("E_INVALIDATED","Ad Invalidated"); }
+                cleanUp();
             } else {
                 mRewardedAd.show();
             }
@@ -57,9 +56,7 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
 
     @Override
     public void onError(Ad ad, AdError adError) {
-        if(mPromise != null) {
-            mPromise.reject("E_FAILED_TO_LOAD", adError.getErrorMessage());
-        }
+        if(mPromise != null) { mPromise.reject("E_FAILED_TO_LOAD", adError.getErrorMessage()); }
         cleanUp();
     }
 
@@ -69,7 +66,7 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
             mLoaded = true;
             if(mShowCalled) {
                 if(mRewardedAd.isAdInvalidated()){
-                    mPromise.reject("E_INVALIDATED","Ad Invalidated");
+                    if(mPromise != null) { mPromise.reject("E_INVALIDATED","Ad Invalidated"); }
                     cleanUp();
                 } else {
                     mRewardedAd.show();
@@ -83,13 +80,13 @@ public class RewardedVideoAdManager extends ReactContextBaseJavaModule implement
 
     @Override
     public void onRewardedVideoCompleted() {
-        mPromise.resolve(true);
+        if(mPromise != null) { mPromise.resolve(true); }
         cleanUp();
     }
 
     @Override
     public void onRewardedVideoClosed() {
-        mPromise.resolve(false);
+        if(mPromise != null) { mPromise.resolve(false); }
         cleanUp();
     }
 
